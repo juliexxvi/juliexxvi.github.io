@@ -1,0 +1,50 @@
+main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+#wordle {
+  width: 350px;
+  height: 420px;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.wordle-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+}
+
+.letter {
+  outline: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+.keyboard {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.key {
+  background-color: #004134;;
+  color: #ffffff;;
+  border-radius: 0px;
+  position: relative;
+  font-size: 50px;
+text-transform: capitalize;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  padding: 1px;
+}
+
+
