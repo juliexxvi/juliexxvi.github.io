@@ -1,12 +1,13 @@
-let letters = document.getElementsByClassName("letter");
-let keys = document.getElementsByClassName("key");
+const letters = document.getElementsByClassName("letter");
+const keys = document.getElementsByClassName("key");
 let col = 0;
 let row = 0;
 // letters is a HTML Collection, need to convert it into an array to use slice
 let processingLetters = Array.from(letters).slice(5 * row, 5 * row + 5);
+let processingKeys = Array.from(keys);
 
 for (let keyElement of keys) {
-  let key = keyElement.textContent;
+  const key = keyElement.textContent;
   keyElement.addEventListener("click", () => {
     switch (key) {
       case "enter":
@@ -59,21 +60,27 @@ const checkWord = (userWord, row) => {
     const userWordLetters = userWord.split("");
     const correctWordLetters = correctWord.split("");
     for (let i = 0; i < userWord.length; i++) {
+      const pressedKey = processingKeys.find((key) => {
+        return key.textContent == userWordLetters[i];
+      });
       if (!correctWordLetters.includes(userWordLetters[i])) {
         // Letter is not correct
-        processingLetters[i].style.backgroundColor = "gray";
+        processingLetters[i].style.backgroundColor = "#807e8b";
+        pressedKey.style.backgroundColor = "#807e8b";
         continue;
       }
 
       if (correctWordLetters[i] == userWordLetters[i]) {
         // Letter is correct
-        processingLetters[i].style.backgroundColor = "green";
+        processingLetters[i].style.backgroundColor = "#acd174";
+        pressedKey.style.backgroundColor = "#acd174";
         continue;
       }
 
       if (correctWordLetters[i] !== userWordLetters[i]) {
         // Letter is correct but not in the right order
-        processingLetters[i].style.backgroundColor = "yellow";
+        processingLetters[i].style.backgroundColor = "#f4cd4a";
+        pressedKey.style.backgroundColor = "#f4cd4a";
       }
     }
   }

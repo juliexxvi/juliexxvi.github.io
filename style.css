@@ -6,9 +6,17 @@ main {
   flex-grow: 1;
   overflow: hidden;
 }
+body {
+  background-color: #93aecb;
+}
+h1 {
+  font-size: -webkit-xxx-large;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 #wordle {
-  width: 350px;
-  height: 420px;
+  width: 550px;
+  height: 620px;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 5px;
@@ -34,12 +42,13 @@ main {
   width: 100%;
 }
 .key {
-  background-color: #004134;;
+  background-color: #cd5c5c;;
   color: #ffffff;;
-  border-radius: 0px;
-  position: relative;
+  border-radius: 15px;
   font-size: 50px;
-text-transform: capitalize;
+  text-transform: capitalize;
+  padding: 10px;
+  margin: 1px;
 }
 .row {
   display: flex;
