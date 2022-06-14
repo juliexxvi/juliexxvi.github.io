@@ -42,8 +42,9 @@ h1 {
   width: 100%;
 }
 .key {
-  background-color: #cd5c5c;;
-  color: #ffffff;;
+  background-color: #cd5c5c;
+  color: #ffffff;
+  width: 75px;
   border-radius: 15px;
   font-size: 50px;
   text-transform: capitalize;
@@ -55,5 +56,21 @@ h1 {
   justify-content: center;
   padding: 1px;
 }
-
-
+.additional-function {
+  padding: 10px;
+  background-color: #FFB6C1;
+  font-size: large;
+  border-radius: 10px;
+  font-weight: 700;
+  width: 150px;
+}
+.menus {
+  text-align: center;
+  margin: 10%;
+}
+#del {
+  width: 135px;
+}
+#enter {
+  width: 170px;
+}

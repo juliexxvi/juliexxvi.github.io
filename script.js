@@ -8,6 +8,7 @@ let processingKeys = Array.from(keys);
 
 for (let keyElement of keys) {
   const key = keyElement.textContent;
+
   keyElement.addEventListener("click", () => {
     switch (key) {
       case "enter":
@@ -22,7 +23,6 @@ for (let keyElement of keys) {
           .join("");
 
         const isValid = checkWord(userWord, row);
-
         if (isValid) {
           row++;
           col = 0;
@@ -86,7 +86,7 @@ const checkWord = (userWord, row) => {
   }
   if (userWord === correctWord) {
     processingLetters.forEach((processingLetter) => {
-      processingLetter.style.backgroundColor = "green";
+      processingLetter.style.backgroundColor = "#acd174";
     });
   }
   return true;
