@@ -1,14 +1,15 @@
 const letters = document.getElementsByClassName("letter");
 const keys = document.getElementsByClassName("key");
+const enter = document.getElementById("enter");
 let col = 0;
 let row = 0;
+let userWord = "";
 // letters is a HTML Collection, need to convert it into an array to use slice
 let processingLetters = Array.from(letters).slice(5 * row, 5 * row + 5);
 let processingKeys = Array.from(keys);
 
 for (let keyElement of keys) {
   const key = keyElement.textContent;
-
   keyElement.addEventListener("click", () => {
     switch (key) {
       case "enter":
@@ -16,12 +17,6 @@ for (let keyElement of keys) {
         if (col < 4) {
           break;
         }
-        const userWord = processingLetters
-          .map((processingLetter) => {
-            return processingLetter.innerHTML;
-          })
-          .join("");
-
         const isValid = checkWord(userWord, row);
         if (isValid) {
           row++;
@@ -36,7 +31,6 @@ for (let keyElement of keys) {
           processingLetters[col - 1].textContent = "";
           col--;
         }
-
         break;
 
       default:
@@ -46,17 +40,26 @@ for (let keyElement of keys) {
         }
         break;
     }
+
+    userWord = processingLetters
+      .map((processingLetter) => {
+        return processingLetter.innerHTML;
+      })
+      .join("");
+
+    enableOrDisableEnter();
   });
 }
 
 const correctWord = words[Math.round(Math.random() * (words.length - 1))];
 
+const isValidWord = () => {
+  return words.includes(userWord);
+};
+
 const checkWord = (userWord, row) => {
-  if (!words.includes(userWord)) {
-    // Invalid word, word does not exist in the library
-    return false;
-  }
   if (userWord !== correctWord) {
+    // console.log(userWord);
     const userWordLetters = userWord.split("");
     const correctWordLetters = correctWord.split("");
     for (let i = 0; i < userWord.length; i++) {
@@ -87,9 +90,16 @@ const checkWord = (userWord, row) => {
   if (userWord === correctWord) {
     processingLetters.forEach((processingLetter) => {
       processingLetter.style.backgroundColor = "#acd174";
+      processingKeys.forEach((key) => {
+        key.disabled = true;
+      });
     });
   }
   return true;
+};
+
+const enableOrDisableEnter = () => {
+  enter.disabled = !(col >= 4 && isValidWord());
 };
 
 console.log(correctWord);

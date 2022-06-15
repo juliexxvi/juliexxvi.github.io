@@ -72,5 +72,9 @@ h1 {
   width: 135px;
 }
 #enter {
-  width: 170px;
+  width: auto;
+}
+
+#enter:disabled {
+  background-color: gray;
 }
