@@ -101,6 +101,7 @@ const checkWord = () => {
         key.disabled = true;
       });
     });
+    hint.disabled = true;
   }
 };
 

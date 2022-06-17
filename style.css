@@ -76,11 +76,14 @@ h1 {
   width: auto;
 }
 
+h2 {
+  color: white;
+}
+
 #enter:disabled {
   background-color: rgb(128, 126, 139);
 }
 
-/* Modal */
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -119,6 +122,4 @@ h1 {
   cursor: pointer;
 }
 
-h2 {
-  color: white;
-}
+
